@@ -1,0 +1,56 @@
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+export default function FlightInstructorSite() {
+  return (
+    <div className="min-h-screen bg-slate-50 p-6 grid gap-8">
+      <header className="max-w-5xl mx-auto text-center">
+        <h1 className="text-4xl font-bold">Professional Flight Instruction</h1>
+        <p className="text-lg mt-2 text-slate-600">
+          Private • Instrument • Commercial Training
+        </p>
+        <Button className="mt-4">Schedule a Discovery Flight</Button>
+      </header>
+
+      <section className="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+        {[
+          { title: "Private Pilot License", desc: "Start your aviation journey and earn your wings." },
+          { title: "Instrument Rating", desc: "Learn to fly safely in the clouds and expand your capability." },
+          { title: "Commercial Pilot", desc: "Turn your passion into a professional career." },
+          { title: "CFII Training", desc: "Advanced instructor training for instrument instruction." },
+          { title: "Tailwheel Endorsement", desc: "Master stick and rudder skills in tailwheel aircraft." },
+          { title: "High Performance & Complex (Coming Soon)", desc: "Advanced aircraft endorsements." }
+        ].map((item, i) => (
+          <motion.div key={i} whileHover={{ scale: 1.03 }}>
+            <Card className="rounded-2xl shadow-md">
+              <CardContent className="p-6">
+                <h2 className="text-xl font-semibold">{item.title}</h2>
+                <p className="text-slate-600 mt-2">{item.desc}</p>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </section>
+
+      <section className="max-w-3xl mx-auto text-center">
+        <h2 className="text-2xl font-bold">Why Train With Me?</h2>
+        <p className="text-slate-600 mt-3">
+          Personalized instruction focused on safety, real-world flying skills, and helping
+          you reach your aviation goals efficiently. Whether you're pursuing aviation as a
+          hobby or career, training is tailored to your learning style.
+        </p>
+      </section>
+
+      <section className="max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl font-bold">Contact</h2>
+        <p className="text-slate-600 mt-2">Email: yourname@email.com</p>
+        <p className="text-slate-600">Phone: (000) 000-0000</p>
+      </section>
+
+      <footer className="text-center text-slate-500 text-sm">
+        © {new Date().getFullYear()} Flight Instruction Services
+      </footer>
+    </div>
+  );
+}
